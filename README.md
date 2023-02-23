@@ -27,6 +27,7 @@ npm run dev
 ## Recursos da api
 ### Cadastro de Produtos
 Rota: /produto/ 
+
 O cadastro de produtos deve seguir a seguinte estrutura JSON:
 ~~~
 {
@@ -43,7 +44,7 @@ Rota: /produto/
 
 
 ### Alterar preço do produto
-Rota: /produto/preco/:codigo
+Rota: /produto/preco/:codigo 
 
 Exemplo de JSON a ser enviado no Body:
 ~~~
