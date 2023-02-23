@@ -23,3 +23,13 @@ o seguinte comando no terminal:
 npm start
 ~~~
 Ou escreva ```npm run dev``` para um ambiente de desenvolvimento
+
+## Cadastrar produtos
+o cadastro dos produtos devem ter a seguinte estrutura de JSON:
+~~~
+{
+    "codigo": "2", 
+    "descricao": "Leite em Po Semidesnatado 350g", 
+    "preco": "69.99"
+}
+~~~
