@@ -1,31 +1,33 @@
-# cadastro-de-produtos
-Se trata de uma api-rest para cadastrar produtos. usando mongoDB e expresse
-
-
-## Rodar a api
-### Installar as depenecias
+# API de Cadastro de Produtos
+Esta é uma API REST para cadastro de produtos que utiliza o MongoDB como banco de dados e o framework Express.
+## Executando a API
+### Instalação das dependências
+Para instalar as dependências necessárias, abra o terminal e execute o seguinte comando:
 ~~~
-npm i 
+npm i
 ~~~
-### Criar arquivo __.env__
-Antes de executar o arquivo você deverar criar um arquivo chamado __.env__
-contendo as variaveis de ambiente, com a seguinte estrutura:
+### Configuração das variáveis de ambiente
+Antes de executar a API, é necessário criar um arquivo __.env__ na raiz do projeto contendo as variáveis de ambiente com a seguinte estrutura:
 ~~~
-PORT="3000"
-CONNECTION_STRING="SUA CONECÇÃO COM MONDODB"
-TOKEN_SECRET="SUA PALAVRA SECRETA DO TOKEN"
-
+PORT=3000
+CONNECTION_STRING=<SUA CONEXÃO COM O MONGODB>
+TOKEN_SECRET=<SUA PALAVRA SECRETA DO TOKEN>
 ~~~
-### Execute a api
-Apos terminar de instalar as depenciar e criar configurar as variaveis de ambiente você pode inicie a apt digitando
-o seguinte comando no terminal:
+A variável __`PORT`__ define a porta em que a API será executada. __`CONNECTION_STRING`__ é a string de conexão com o banco de dados MongoDB. __`TOKEN_SECRET`__ é a chave secreta usada para autenticar os tokens.
+### Iniciando a API
+Após instalar as dependências e configurar as variáveis de ambiente, a API pode ser iniciada executando o seguinte comando:
 ~~~
 npm start
 ~~~
-Ou escreva ```npm run dev``` para um ambiente de desenvolvimento
+Para executar a API em um ambiente de desenvolvimento, execute o comando:
+~~~
+npm run dev
+~~~
 
-## Cadastrar produtos
-o cadastro dos produtos devem ter a seguinte estrutura de JSON:
+## Recursos da api
+### Cadastro de Produtos
+Rota: /produto/
+O cadastro de produtos deve seguir a seguinte estrutura JSON:
 ~~~
 {
     "codigo": "2", 
@@ -33,3 +35,31 @@ o cadastro dos produtos devem ter a seguinte estrutura de JSON:
     "preco": "69.99"
 }
 ~~~
+
+
+### Buscar todos os produtos
+
+Rota: /produto/
+
+
+### Alterar preço do produto
+Rota: /produto/preco/:codigo
+
+Exemplo de JSON a ser enviado no Body:
+~~~
+{ "preco": "5.99" }
+~~~
+
+
+### Pesquisar produto por código
+Método GET Rota: /produto/:codigo
+
+
+### Pesquisar Produto por Descrição
+Rota: /produto/descricao/:descricao
+
+## Libs usadas:
+* [Express](https://www.npmjs.com/package/express)
+* [Mongoose](https://www.npmjs.com/package/mongoose)
+* [Dotenv](https://www.npmjs.com/package/dotenv)
+
