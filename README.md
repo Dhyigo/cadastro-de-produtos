@@ -11,9 +11,9 @@ npm i
 Antes de executar o arquivo você deverar criar um arquivo chamado __.env__
 contendo as variaveis de ambiente, com a seguinte estrutura:
 ~~~
-PORT=<aqui vai o número da porta do servidor express>
-CONNECTION_STRING=<aqui vai sua sua conecção com o mongoDB>
-TOKEN_SECRET=<aqui vai uma palavra secreta para o seu token>
+PORT="3000"
+CONNECTION_STRING="SUA CONECÇÃO COM MONDODB"
+TOKEN_SECRET="SUA PALAVRA SECRETA DO TOKEN"
 
 ~~~
 ### Execute a api
