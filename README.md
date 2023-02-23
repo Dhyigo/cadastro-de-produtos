@@ -17,9 +17,9 @@ TOKEN_SECRET="SUA PALAVRA SECRETA DO TOKEN"
 
 ~~~
 ### Execute a api
-Apos terminar de instalar as depenciar inicie a apt digitando
-o seguinte comando no terminal para testar em produção
+Apos terminar de instalar as depenciar e criar configurar as variaveis de ambiente você pode inicie a apt digitando
+o seguinte comando no terminal:
 ~~~
 npm start
 ~~~
-Ou rode ```npm run dev``` para um ambiente de desenvolvimento
+Ou escreva ```npm run dev``` para um ambiente de desenvolvimento
