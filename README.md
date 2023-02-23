@@ -64,5 +64,11 @@ Rota: /produto/descricao/:descricao
 * [Mongoose](https://www.npmjs.com/package/mongoose)
 * [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 * [Dotenv](https://www.npmjs.com/package/dotenv)
+* [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+
+### DevDependencies
+* [Eslin](https://www.npmjs.com/package/eslint)
+* [Nodemon](https://www.npmjs.com/package/nodemon)
+* [Sucrase](https://www.npmjs.com/package/sucrase)
 
 
