@@ -7,7 +7,7 @@ Se trata de uma api-rest para cadastrar produtos.
 npm i 
 ~~~
 
-### Execete a api
+### Execute a api
 Apos terminar de instalar as depenciar inicie a apt digitando
 o seguinte comando no terminal para testar em produção
 ~~~
