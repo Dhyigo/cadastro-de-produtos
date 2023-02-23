@@ -26,7 +26,7 @@ npm run dev
 
 ## Recursos da api
 ### Cadastro de Produtos
-Rota: /produto/
+Rota: /produto/ 
 O cadastro de produtos deve seguir a seguinte estrutura JSON:
 ~~~
 {
@@ -55,10 +55,10 @@ Exemplo de JSON a ser enviado no Body:
 Método GET Rota: /produto/:codigo
 
 
-### Pesquisar Produto por Descrição
+### Pesquisar Produto por descrição
 Rota: /produto/descricao/:descricao
 
-## Libs usadas:
+## Bibliotecas utilizadas:
 * [Express](https://www.npmjs.com/package/express)
 * [Mongoose](https://www.npmjs.com/package/mongoose)
 * [Dotenv](https://www.npmjs.com/package/dotenv)
