@@ -1,5 +1,6 @@
 # cadastro-de-produtos
-Se trata de uma api-rest para cadastrar produtos.
+Se trata de uma api-rest para cadastrar produtos. usando mongoDB e expresse
+
 
 ## Rodar a api
 ### Installar as depenecias
