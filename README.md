@@ -68,7 +68,7 @@ Rota: /produto/descricao/:descricao
 * [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
 
 ### Dev Dependencies
-* [Eslin](https://www.npmjs.com/package/eslint)
+* [Eslint](https://www.npmjs.com/package/eslint)
 * [Nodemon](https://www.npmjs.com/package/nodemon)
 * [Sucrase](https://www.npmjs.com/package/sucrase)
 
