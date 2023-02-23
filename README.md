@@ -62,5 +62,7 @@ Rota: /produto/descricao/:descricao
 ## Bibliotecas utilizadas:
 * [Express](https://www.npmjs.com/package/express)
 * [Mongoose](https://www.npmjs.com/package/mongoose)
+* [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 * [Dotenv](https://www.npmjs.com/package/dotenv)
+
 
