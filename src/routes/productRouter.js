@@ -5,5 +5,7 @@ const route = Router();
 
 route.get('/', ProductController.index);
 route.post('/', ProductController.store);
+route.get('/:code', ProductController.show);
+route.get('/descricao/:description', ProductController.search);
 
 export default route;
