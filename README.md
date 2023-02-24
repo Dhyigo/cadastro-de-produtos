@@ -26,13 +26,13 @@ npm run dev
 
 ## Recursos da api
 ### Cadastro de Produtos
-Rota: /produto/ 
+Rota: POST /produto/
 
 O cadastro de produtos deve seguir a seguinte estrutura JSON:
 ~~~
 {
-    "codigo": "2", 
-    "descricao": "Leite em Po Semidesnatado 350g", 
+    "codigo": "2",
+    "descricao": "Leite em Po Semidesnatado 350g",
     "preco": "69.99"
 }
 ~~~
@@ -40,11 +40,11 @@ O cadastro de produtos deve seguir a seguinte estrutura JSON:
 
 ### Buscar todos os produtos
 
-Rota: /produto/
+Rota: GET /produto/
 
 
 ### Alterar preço do produto
-Rota: /produto/preco/:codigo 
+Rota: PUT /produto/preco/:codigo
 
 Exemplo de JSON a ser enviado no Body:
 ~~~
@@ -53,14 +53,23 @@ Exemplo de JSON a ser enviado no Body:
 
 
 ### Pesquisar produto por código
-Método GET Rota: /produto/:codigo
+Rota: GET /produto/:codigo
 
 
 ### Pesquisar Produto por descrição
-Rota: /produto/descricao/:descricao
+Rota: GET /produto/descricao/:descricao
 
 ## Bibliotecas utilizadas:
+### Dependencies
 * [Express](https://www.npmjs.com/package/express)
 * [Mongoose](https://www.npmjs.com/package/mongoose)
+* [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 * [Dotenv](https://www.npmjs.com/package/dotenv)
+* [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+
+### Dev Dependencies
+* [Eslint](https://www.npmjs.com/package/eslint)
+* [Nodemon](https://www.npmjs.com/package/nodemon)
+* [Sucrase](https://www.npmjs.com/package/sucrase)
+
 

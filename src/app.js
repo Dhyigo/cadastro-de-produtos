@@ -15,7 +15,7 @@ class App {
   }
 
   routes() {
-    this.app.use('/', productRouter);
+    this.app.use('/produto', productRouter);
   }
 }
 
