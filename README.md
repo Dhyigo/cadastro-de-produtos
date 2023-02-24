@@ -44,7 +44,7 @@ Rota: GET /produto/
 
 
 ### Alterar preço do produto
-Rota: PUT /produto/preco/:codigo
+Rota: PUT /produto/preco/:code
 
 Exemplo de JSON a ser enviado no Body:
 ~~~
@@ -53,11 +53,11 @@ Exemplo de JSON a ser enviado no Body:
 
 
 ### Pesquisar produto por código
-Rota: GET /produto/:codigo
+Rota: GET /produto/:code
 
 
-### Pesquisar Produto por descrição
-Rota: GET /produto/descricao/:descricao
+### Pesquisar produto por descrição
+Rota: GET /produto/descricao/:description
 
 ## Bibliotecas utilizadas:
 ### Dependencies

@@ -31,9 +31,14 @@ export default class Product {
     this.product = await ProductModel.create(this.body);
   }
 
-  static async getAllProducts() {
-    const products = await ProductModel.find();
-    return products;
+  static async getAllProducts(page, limit, filter = {}) {
+    const count = await ProductModel.countDocuments();
+
+    const products = await ProductModel.find(filter)
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    return { count, products };
   }
 
   static async getProduct(obj) {
