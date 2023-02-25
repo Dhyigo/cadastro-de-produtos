@@ -21,6 +21,19 @@ export default class Product {
     this.status = statusHttp.ok;
   }
 
+  async update(code) {
+    this.validateUpdate();
+
+    if (this.errors.length) return;
+
+    if (!(await Product.getProduct({ code }))) {
+      this.setError(errorsMsg.productNotExists, statusHttp.notFound);
+      return;
+    }
+
+    this.product = await ProductModel.findOneAndUpdate({ code }, this.body, { new: true });
+  }
+
   async create() {
     this.validate();
 
@@ -52,6 +65,8 @@ export default class Product {
 
   validate() {
     this.clearData();
+    this.formatBody();
+
     const { code, description, price } = this.body;
     const priceNumber = Number(price);
 
@@ -65,12 +80,27 @@ export default class Product {
     }
   }
 
+  validateUpdate() {
+    this.clearData();
+
+    const { price } = this.body;
+    const priceNumber = Number(price);
+
+    if (priceNumber <= 0) {
+      this.setError(errorsMsg.price, statusHttp.badRequest);
+      return;
+    }
+
+    this.body = {
+      price: priceNumber,
+      updated_at: Date.now(),
+    };
+  }
+
   clearData() {
     Object.keys(this.body).forEach((key) => {
       if (typeof this.body[key] !== 'string') this.body[key] = '';
     });
-
-    this.formatBody();
   }
 
   setError(msg, status) {
