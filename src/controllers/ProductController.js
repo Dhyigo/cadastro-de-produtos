@@ -1,4 +1,5 @@
 import Product from '../models/ProductModel';
+import statusHttp from '../configs/statusHttp';
 
 class ProductController {
   async index(req, res) {
@@ -7,14 +8,14 @@ class ProductController {
 
       const { products, count } = await Product.getAllProducts(page, limit);
 
-      return res.json({
+      return res.status(statusHttp.ok).json({
         products,
         totalPages: Math.ceil(count / limit),
         currentPage: page,
         totalItems: count,
       });
     } catch (e) {
-      return res.status(500).json({
+      return res.status(statusHttp.internalServerError).json({
         errors: ['Erro ao buscar os produtos'],
       });
     }
@@ -27,16 +28,16 @@ class ProductController {
       await product.create();
 
       if (product.errors.length) {
-        return res.status(400).json({
+        return res.status(product.status).json({
           errors: product.errors,
         });
       }
 
-      return res.json({
+      return res.status(product.status).json({
         product: product.product,
       });
     } catch (e) {
-      return res.status(400).json({
+      return res.status(statusHttp.internalServerError).json({
         errors: ['Erro ao criar produto'],
       });
     }
@@ -47,7 +48,7 @@ class ProductController {
       const { code } = req.params;
 
       if (!code) {
-        return res.status(400).json({
+        return res.status(statusHttp.badRequest).json({
           errors: ['Erro código inválido'],
         });
       }
@@ -55,14 +56,14 @@ class ProductController {
       const product = await Product.getProduct({ code });
 
       if (!product) {
-        return res.status(404).json({
+        return res.status(statusHttp.notFound).json({
           errors: ['Produto não existe'],
         });
       }
 
-      return res.json({ product });
+      return res.status(statusHttp.ok).json({ product });
     } catch (e) {
-      return res.status(500).json({
+      return res.status(statusHttp.internalServerError).json({
         errors: ['Erro ao buscar o produto'],
       });
     }
@@ -72,7 +73,7 @@ class ProductController {
     try {
       const { description } = req.params;
       if (!description || typeof description !== 'string') {
-        return res.status(400).json({
+        return res.status(statusHttp.badRequest).json({
           errors: ['Descrição inválida'],
         });
       }
@@ -83,14 +84,14 @@ class ProductController {
         description: { $regex: description, $options: 'i' },
       });
 
-      return res.json({
+      return res.status(statusHttp.ok).json({
         products,
         totalPages: Math.ceil(count / limit),
         currentPage: page,
         totalItems: count,
       });
     } catch (e) {
-      return res.status(500).json({
+      return res.status(statusHttp.internalServerError).json({
         errors: ['Erro ao buscar os produtos'],
       });
     }

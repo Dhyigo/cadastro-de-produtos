@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import validator from 'validator';
 import bcryptjs from 'bcryptjs';
 
+import statusHttp from '../configs/statusHttp';
 import errorsMsg from '../configs/errorsConfig';
 
 const userShame = new mongoose.Schema({
@@ -17,6 +18,7 @@ export default class Product {
     this.body = body;
     this.errors = [];
     this.user = null;
+    this.status = statusHttp.ok;
   }
 
   async create() {
@@ -25,7 +27,7 @@ export default class Product {
     if (this.errors.length) return;
 
     if ((await UserModel.findOne({ email: this.body.email }))) {
-      this.errors.push(errorsMsg.userExists);
+      this.setError(errorsMsg.userExists, statusHttp.conflict);
       return;
     }
 
@@ -33,6 +35,7 @@ export default class Product {
     console.log(this.body);
 
     this.user = await UserModel.create(this.body);
+    this.status = statusHttp.created;
   }
 
   validate() {
@@ -40,12 +43,12 @@ export default class Product {
     const { email, password } = this.body;
 
     if (!validator.isEmail(email)) {
-      this.errors.push(errorsMsg.email);
+      this.setError(errorsMsg.email, statusHttp.badRequest);
       return;
     }
 
     if (password.length < 6) {
-      this.errors.push(errorsMsg.password);
+      this.setError(errorsMsg.password, statusHttp.badRequest);
     }
   }
 
@@ -55,6 +58,11 @@ export default class Product {
     });
 
     this.formatBody();
+  }
+
+  setError(msg, status) {
+    this.errors.push(msg);
+    this.status = status;
   }
 
   formatBody() {

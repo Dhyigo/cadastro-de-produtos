@@ -2,11 +2,23 @@ import User from '../models/UserModel';
 
 class UserController {
   async store(req, res) {
-    const user = new User(req.body);
+    try {
+      const user = new User(req.body);
 
-    await user.create();
+      await user.create();
 
-    res.json(user);
+      if (user.errors.length) {
+        return res.status(user.status).json({
+          errors: user.errors,
+        });
+      }
+
+      return res.status(user.status).json({ success: ['usuário foi criado com sucesso.'] });
+    } catch (e) {
+      return res.status(500).json({
+        errors: ['Erro ao criar usuário'],
+      });
+    }
   }
 }
 
