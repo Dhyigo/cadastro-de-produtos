@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+
+import statusHttp from '../configs/statusHttp';
 import errorsMsg from '../configs/errorsConfig';
 
 const productShame = new mongoose.Schema({
@@ -16,6 +18,7 @@ export default class Product {
     this.body = body;
     this.errors = [];
     this.product = null;
+    this.status = statusHttp.ok;
   }
 
   async create() {
@@ -24,11 +27,12 @@ export default class Product {
     if (this.errors.length) return;
 
     if ((await Product.getProduct({ code: this.body.code }))) {
-      this.errors.push(errorsMsg.productExists);
+      this.setError(errorsMsg.productExists, statusHttp.conflict);
       return;
     }
 
     this.product = await ProductModel.create(this.body);
+    this.status = statusHttp.created;
   }
 
   static async getAllProducts(page, limit, filter = {}) {
@@ -52,12 +56,12 @@ export default class Product {
     const priceNumber = Number(price);
 
     if (!code || !description || !priceNumber) {
-      this.errors.push(errorsMsg.data);
+      this.setError(errorsMsg.data, statusHttp.badRequest);
       return;
     }
 
     if (priceNumber <= 0) {
-      this.errors.push(errorsMsg.price);
+      this.setError(errorsMsg.price, statusHttp.badRequest);
     }
   }
 
@@ -67,6 +71,11 @@ export default class Product {
     });
 
     this.formatBody();
+  }
+
+  setError(msg, status) {
+    this.errors.push(msg);
+    this.status = status;
   }
 
   formatBody() {
