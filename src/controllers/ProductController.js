@@ -16,7 +16,7 @@ class ProductController {
       });
     } catch (e) {
       return res.status(statusHttp.internalServerError).json({
-        errors: ['Erro ao buscar os produtos'],
+        errors: ['Erro ao buscar os produtos.'],
       });
     }
   }
@@ -38,7 +38,7 @@ class ProductController {
       });
     } catch (e) {
       return res.status(statusHttp.internalServerError).json({
-        errors: ['Erro ao criar produto'],
+        errors: ['Erro ao criar produto.'],
       });
     }
   }
@@ -47,9 +47,9 @@ class ProductController {
     try {
       const { code } = req.params;
 
-      if (!code) {
+      if (typeof code !== 'string') {
         return res.status(statusHttp.badRequest).json({
-          errors: ['Erro código inválido'],
+          errors: ['Erro código inválido.'],
         });
       }
 
@@ -57,14 +57,14 @@ class ProductController {
 
       if (!product) {
         return res.status(statusHttp.notFound).json({
-          errors: ['Produto não existe'],
+          errors: ['Produto não existe.'],
         });
       }
 
       return res.status(statusHttp.ok).json({ product });
     } catch (e) {
       return res.status(statusHttp.internalServerError).json({
-        errors: ['Erro ao buscar o produto'],
+        errors: ['Erro ao buscar o produto.'],
       });
     }
   }
@@ -92,7 +92,37 @@ class ProductController {
       });
     } catch (e) {
       return res.status(statusHttp.internalServerError).json({
-        errors: ['Erro ao buscar os produtos'],
+        errors: ['Erro ao buscar os produtos.'],
+      });
+    }
+  }
+
+  async update(req, res) {
+    try {
+      const { code } = req.params;
+
+      if (typeof code !== 'string') {
+        return res.status(statusHttp.badRequest).json({
+          errors: ['Erro código inválido.'],
+        });
+      }
+
+      const product = new Product(req.body);
+
+      await product.update(code);
+
+      if (product.errors.length) {
+        return res.status(product.status).json({
+          errors: product.errors,
+        });
+      }
+
+      return res.status(product.status).json({
+        product: product.product,
+      });
+    } catch (e) {
+      return res.status(statusHttp.internalServerError).json({
+        errors: ['Erro ao atualizar produto.'],
       });
     }
   }
