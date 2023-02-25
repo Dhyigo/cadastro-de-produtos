@@ -24,7 +24,7 @@ export default class Product {
     if (this.errors.length) return;
 
     if ((await Product.getProduct({ code: this.body.code }))) {
-      this.errors.push(errorsMsg.productExiste);
+      this.errors.push(errorsMsg.productExists);
       return;
     }
 
@@ -47,17 +47,17 @@ export default class Product {
   }
 
   validate() {
-    this.clearData(this.body);
+    this.clearData();
     const { code, description, price } = this.body;
     const priceNumber = Number(price);
 
     if (!code || !description || !priceNumber) {
-      this.errors.push(errorsMsg.invalidData);
+      this.errors.push(errorsMsg.data);
       return;
     }
 
     if (priceNumber <= 0) {
-      this.errors.push(errorsMsg.invalidPrice);
+      this.errors.push(errorsMsg.price);
     }
   }
 
