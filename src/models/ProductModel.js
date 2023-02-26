@@ -49,7 +49,7 @@ export default class Product {
   }
 
   static async getAllProducts(page, limit, filter = {}) {
-    const count = await ProductModel.countDocuments();
+    const count = await ProductModel.countDocuments(filter);
 
     const products = await ProductModel.find(filter)
       .skip((page - 1) * limit)
