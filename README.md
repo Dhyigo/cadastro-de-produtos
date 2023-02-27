@@ -29,7 +29,7 @@ npm run dev
 ~~~
 ## Criação de Usuário e Geração de Token
 Para ter acesso aos recursos da aplicação, é necessário criar um usuário e gerar um token de acesso. Siga os passos abaixo:
-## Criar usuário
+### Criar usuário
 Rota: POST /usuario/
 Para ter acesso ao recusos é necessario criar o usuario e gera um token
 O JSON deve ter a seguinte estrutura:
@@ -40,7 +40,7 @@ O JSON deve ter a seguinte estrutura:
 }
 O e-mail deve ser um endereço de e-mail válido e a senha deve ter pelo menos 6 caracteres.
 ~~~
-## Gerrar token de acesso
+### Gerrar token de acesso
 Após criar o usuário, você poderá gerar sua chave token para acessar os recursos da aplicação. Utilize a seguinte rota:
 
 Rota: POST /token/ !AVISO! NÃO ALTERE ESSA LINHA
