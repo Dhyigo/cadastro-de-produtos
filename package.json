@@ -4,7 +4,9 @@
   "description": "Esta é uma API REST para cadastro de produtos.",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
   },
   "keywords": [
     "api",
