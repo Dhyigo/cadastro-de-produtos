@@ -3,7 +3,6 @@ var _statusHttp = require('../configs/statusHttp'); var _statusHttp2 = _interopR
 
 class ProductController {
   async index(req, res) {
-    console.log(req);
     try {
       const { page = 1, limit = 20 } = req.query;
 
