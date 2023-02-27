@@ -52,9 +52,9 @@ Rota: POST /produto/
 O cadastro de produtos deve seguir a seguinte estrutura JSON:
 ~~~
 {
-    "codigo": "2",
-    "descricao": "Leite em Po Semidesnatado 350g",
-    "preco": "69.99"
+  "code": "19",
+  "description": "Leite Condensado 395g",
+  "price": 3.99,
 }
 ~~~
 
@@ -69,7 +69,7 @@ Rota: PUT /produto/preco/:code
 
 Exemplo de JSON a ser enviado no Body:
 ~~~
-{ "preco": "5.99" }
+{ "price": "5.99" }
 ~~~
 
 
