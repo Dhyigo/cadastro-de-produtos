@@ -3,7 +3,6 @@ import statusHttp from '../configs/statusHttp';
 
 class ProductController {
   async index(req, res) {
-    console.log(req);
     try {
       const { page = 1, limit = 20 } = req.query;
 
