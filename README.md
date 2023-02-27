@@ -12,8 +12,12 @@ Antes de executar a API, é necessário criar um arquivo __.env__ na raiz do pro
 PORT=3000
 CONNECTION_STRING=<SUA CONEXÃO COM O MONGODB>
 TOKEN_SECRET=<SUA PALAVRA SECRETA DO TOKEN>
+TOKEN_EXPORATION=<TEMPO EM DIAS DE VALIDAD DO TOKEN>
 ~~~
-A variável __`PORT`__ define a porta em que a API será executada. __`CONNECTION_STRING`__ é a string de conexão com o banco de dados MongoDB. __`TOKEN_SECRET`__ é a chave secreta usada para autenticar os tokens.
+ *__`PORT`__ - Define a porta em que a API será executada.
+ *__`CONNECTION_STRING`__ - É a string de conexão com o banco de dados MongoDB.
+ *__`TOKEN_SECRET`__ - É a chave secreta usada para autenticar os tokens.
+ *__`TOKEN_EXPORATION`__ - Esta variável define o tempo de validade dos seus tokens em dias.
 ### Iniciando a API
 Após instalar as dependências e configurar as variáveis de ambiente, a API pode ser iniciada executando o seguinte comando:
 ~~~
