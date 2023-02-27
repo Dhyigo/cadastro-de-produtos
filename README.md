@@ -35,8 +35,8 @@ Para ter acesso ao recusos é necessario criar o usuario e gera um token
 O JSON deve ter a seguinte estrutura:
 ~~~
 {
-	"email": "email@gmail.com",
-	"password": "123456"
+  "email": "email@gmail.com",
+  "password": "123456"
 }
 ~~~
 O e-mail deve ser um endereço de e-mail válido e a senha deve ter pelo menos 6 caracteres.
