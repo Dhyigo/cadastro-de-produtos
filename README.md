@@ -14,10 +14,10 @@ CONNECTION_STRING=<SUA CONEXÃO COM O MONGODB>
 TOKEN_SECRET=<SUA PALAVRA SECRETA DO TOKEN>
 TOKEN_EXPORATION=<TEMPO EM DIAS DE VALIDAD DO TOKEN>
 ~~~
- *__`PORT`__ - Define a porta em que a API será executada.
- *__`CONNECTION_STRING`__ - É a string de conexão com o banco de dados MongoDB.
- *__`TOKEN_SECRET`__ - É a chave secreta usada para autenticar os tokens.
- *__`TOKEN_EXPORATION`__ - Esta variável define o tempo de validade dos seus tokens em dias.
+* __`PORT`__ - Define a porta em que a API será executada.
+* __`CONNECTION_STRING`__ - É a string de conexão com o banco de dados MongoDB.
+* __`TOKEN_SECRET`__ - É a chave secreta usada para autenticar os tokens.
+* __`TOKEN_EXPORATION`__ - Esta variável define o tempo de validade dos seus tokens em dias.
 ### Iniciando a API
 Após instalar as dependências e configurar as variáveis de ambiente, a API pode ser iniciada executando o seguinte comando:
 ~~~
@@ -27,6 +27,23 @@ Para executar a API em um ambiente de desenvolvimento, execute o comando:
 ~~~
 npm run dev
 ~~~
+## Criação de Usuário e Geração de Token
+Para ter acesso aos recursos da aplicação, é necessário criar um usuário e gerar um token de acesso. Siga os passos abaixo:
+## Criar usuário
+Rota: POST /usuario/
+Para ter acesso ao recusos é necessario criar o usuario e gera um token
+O JSON deve ter a seguinte estrutura:
+~~~
+{
+	"email": "email@gmail.com",
+	"password": "123456"
+}
+O e-mail deve ser um endereço de e-mail válido e a senha deve ter pelo menos 6 caracteres.
+~~~
+## Gerrar token de acesso
+Após criar o usuário, você poderá gerar sua chave token para acessar os recursos da aplicação. Utilize a seguinte rota:
+
+Rota: POST /token/ !AVISO! NÃO ALTERE ESSA LINHA
 
 ## Recursos da api
 ### Cadastro de Produtos
@@ -71,6 +88,7 @@ Rota: GET /produto/descricao/:description
 * [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 * [Dotenv](https://www.npmjs.com/package/dotenv)
 * [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+* [Validator](https://www.npmjs.com/package/validator)
 
 ### Dev Dependencies
 * [Eslint](https://www.npmjs.com/package/eslint)

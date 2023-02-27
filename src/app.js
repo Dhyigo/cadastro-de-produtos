@@ -2,6 +2,7 @@ import express from 'express';
 
 import productRouter from './routes/productRouter';
 import userRouter from './routes/userRouter';
+import tokenRouter from './routes/tokenRouter';
 
 class App {
   constructor() {
@@ -18,6 +19,7 @@ class App {
   routes() {
     this.app.use('/produto', productRouter);
     this.app.use('/usuario', userRouter);
+    this.app.use('/token', tokenRouter);
   }
 }
 

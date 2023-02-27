@@ -6,4 +6,6 @@ export default {
   email: 'E-mail inválido.',
   password: 'Senha muito curta. Mínimo de 6 caracteres.',
   userExists: 'Usuário existente. Por favor, escolha outro.',
+  authentication: 'Senha ou usuário inválido.',
+  token: 'Token inválido.',
 };
