@@ -43,7 +43,7 @@ O e-mail deve ser um endereço de e-mail válido e a senha deve ter pelo menos 6
 ### Gerrar token de acesso
 Após criar o usuário, você poderá gerar sua chave token para acessar os recursos da aplicação. Utilize a seguinte rota:
 
-Rota: POST /token/ !AVISO! NÃO ALTERE ESSA LINHA
+Rota: POST /token/
 
 ## Recursos da api
 ### Cadastro de Produtos
