@@ -13,7 +13,7 @@ const userShame = new mongoose.Schema({
 
 const UserModel = mongoose.model('users', userShame);
 
-export default class Product {
+export default class User {
   constructor(body) {
     this.body = body;
     this.errors = [];
@@ -26,7 +26,7 @@ export default class Product {
 
     if (this.errors.length) return;
 
-    if ((await UserModel.findOne({ email: this.body.email }))) {
+    if ((await User.getUser({ email: this.body.email }))) {
       this.setError(errorsMsg.userExists, statusHttp.conflict);
       return;
     }
@@ -36,6 +36,11 @@ export default class Product {
 
     this.user = await UserModel.create(this.body);
     this.status = statusHttp.created;
+  }
+
+  static async getUser(filter) {
+    const user = await UserModel.findOne(filter);
+    return user;
   }
 
   validate() {
